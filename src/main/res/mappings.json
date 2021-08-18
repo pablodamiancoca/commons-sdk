@@ -1,0 +1,113 @@
+{
+  "responses": {
+    "com.global.api.entities.TransactionSummary": {
+      "id": ["TransactionId", "String"],
+      "deposit_id": ["DepositReference", "String"],
+      "time_created": ["TransactionDate", "DateTime"],
+      "status": ["TransactionStatus", "String"],
+      "deposit_status": ["DepositStatus", "String"],
+      "type": ["TransactionType", "String"],
+      "channel": ["Channel", "String"],
+      "amount": ["Amount", "Amount"],
+      "currency": ["Currency", "String"],
+      "reference": ["ReferenceNumber", "ClientTransactionId" ,"String" ],
+      "time_created_reference": ["TransactionLocalDate", "DateTime"],
+      "batch_id": ["BatchSequenceNumber", "String"],
+      "country": ["Country", "String"],
+      "parent_resource_id": ["OriginalTransactionId", "String"],
+      "deposit_id": ["DepositReference", "String"],
+      "deposit_time_created": ["DepositDate", "Date"],
+      "payment_method": {
+        "message": ["GatewayResponseMessage", "String"],
+        "entry_mode": ["EntryMode", "String"],
+        "name": ["CardHolderName", "String"],
+        "card": {
+          "brand": ["CardType", "String"],
+          "authcode": ["AuthCode", "String"],
+          "brand_reference": ["BrandReference", "String"],
+          "arn": ["AcquirerReferenceNumber", "String"],
+          "masked_number_first6last4": ["MaskedCardNumber", "String"]
+        },
+        "digital_wallet": {
+          "brand": ["CardType", "String"],
+          "authcode": ["AuthCode", "String"],
+          "brand_reference": ["BrandReference", "String"],
+          "masked_token_first6last4": ["MaskedCardNumber", "String"]
+        }
+      },
+      "system": {
+        "mid": ["MerchantId", "String"],
+        "hierarchy": ["MerchantHierarchy", "String"],
+        "name": ["MerchantName", "String"],
+        "dba": ["MerchantDbaName", "String"]
+      }
+    },
+    "com.global.api.entities.reporting.DepositSummary": {
+      "id": ["DepositId", "String"],
+      "time_created": ["DepositDate", "Date"],
+      "status": ["Status", "String"],
+      "funding_type": ["Type", "String"],
+      "amount": ["Amount", "Amount"],
+      "currency": ["Currency", "String"],
+      "system": {
+        "mid": ["MerchantNumber", "String"],
+        "hierarchy": ["MerchantHierarchy", "String"],
+        "name": ["MerchantName", "String"],
+        "dba": ["MerchantDbaName", "String"]
+      },
+      "sales": {
+        "count": ["SalesTotalCount", "Int"],
+        "amount": ["SalesTotalAmount", "Amount"]
+      },
+      "refunds": {
+        "count": ["RefundsTotalCount", "Int"],
+        "amount": ["RefundsTotalAmount", "Amount"]
+      },
+      "disputes": {
+        "chargebacks": {
+          "count": ["ChargebackTotalCount", "Int"],
+          "amount": ["ChargebackTotalAmount", "Amount"]
+        },
+        "reversals": {
+            "count": ["AdjustmentTotalCount", "Int"],
+            "amount": ["AdjustmentTotalAmount", "Amount"]
+        }
+      },
+      "fees": {
+        "amount": ["FeesTotalAmount", "Amount"]
+      },
+      "bank_transfer": {
+        "masked_account_number_last4": ["AccountNumber", "String"]
+      }
+    },
+    "com.global.api.entities.reporting.DisputeSummary": {
+      "id": ["CaseId", "String"],
+      "time_created": ["CaseIdTime", "Date"],
+      "status": ["CaseStatus", "String"],
+      "stage": ["CaseStage", "String"],
+      "amount": ["CaseAmount", "Amount"],
+      "currency": ["CaseCurrency", "String"],
+      "reason_code": ["ReasonCode", "String"],
+      "reason_description": ["Reason", "String"],
+      "result": ["Result", "String"],
+      "system": {
+        "mid": ["CaseMerchantId", "String"],
+        "tid": ["CaseTerminalId", "String"],
+        "hierarchy": ["MerchantHierarchy", "String"],
+        "name": ["MerchantName", "String"],
+        "dba": ["MerchantDbaName", "String"]
+      },
+      "last_adjustment_amount": ["LastAdjustmentAmount", "Amount"],
+      "last_adjustment_currency": ["LastAdjustmentCurrency", "String"],
+      "last_adjustment_funding": ["LastAdjustmentFunding", "String"],
+      "payment_method": {
+        "card": {
+          "number": ["TransactionMaskedCardNumber", "String"],
+          "arn": ["TransactionARN", "String"],
+          "brand": ["TransactionCardType", "String"]
+        }
+      },
+      "time_to_respond_by": ["RespondByDate", "Date"]
+    }
+  }
+}
